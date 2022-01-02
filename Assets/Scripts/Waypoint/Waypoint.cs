@@ -41,4 +41,9 @@ public class Waypoint : MonoBehaviour
             }
         }
     }
+
+    public Vector3 GetWaypointPosition(int index)
+    {
+        return CurrentPosition + Points[index];
+    }
 }

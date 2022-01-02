@@ -35,6 +35,7 @@ public class ObjectPooler : MonoBehaviour
 
     public GameObject GetInstanceFromPool()
     {
+        // TODO Convert to Dictionary<> to improve performance
         for (int i = 0; i < _pool.Count; i++)
         {
             if (!_pool[i].activeInHierarchy)
