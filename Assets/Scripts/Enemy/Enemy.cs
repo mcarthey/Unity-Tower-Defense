@@ -14,20 +14,26 @@ public class Enemy : MonoBehaviour
 
     private int _currentWaypointIndex;
     private EnemyHealth _enemyHealth;
+    private Vector3 _lastPointPosition;
+    private SpriteRenderer _spriteRenderer;
 
     public Vector3 CurrentPointPosition => Waypoint.GetWaypointPosition(_currentWaypointIndex);
 
     private void Start()
     {
+        _enemyHealth = GetComponent<EnemyHealth>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+
         _currentWaypointIndex = 0;
         MoveSpeed = _moveSpeed;
-
-        _enemyHealth = GetComponent<EnemyHealth>();
+        _lastPointPosition = transform.position;
     }
 
     private void Update()
     {
         Move();
+        Rotate();
+
         if (CurrentPointPositionReached())
         {
             UpdateCurrentPointIndex();
@@ -50,12 +56,25 @@ public class Enemy : MonoBehaviour
 
     }
 
+    private void Rotate()
+    {
+        if (CurrentPointPosition.x > _lastPointPosition.x)
+        {
+            _spriteRenderer.flipX = false;
+        }
+        else
+        {
+            _spriteRenderer.flipX = true;
+        }
+    }
+
     private bool CurrentPointPositionReached()
     {
         float distanceToNextPointPosition = (transform.position - CurrentPointPosition).magnitude;
 
         if (distanceToNextPointPosition < 0.1f)
         {
+            _lastPointPosition = transform.position;
             return true;
         }
 
