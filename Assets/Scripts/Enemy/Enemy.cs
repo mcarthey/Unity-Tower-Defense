@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     public Waypoint Waypoint { get; set; }
     public float MoveSpeed { get; set; }
 
+    public EnemyHealth EnemyHealth { get; set; }
+
     private int _currentWaypointIndex;
     private EnemyHealth _enemyHealth;
     private Vector3 _lastPointPosition;
@@ -23,6 +25,7 @@ public class Enemy : MonoBehaviour
     {
         _enemyHealth = GetComponent<EnemyHealth>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        EnemyHealth = GetComponent<EnemyHealth>();
 
         _currentWaypointIndex = 0;
         MoveSpeed = _moveSpeed;
