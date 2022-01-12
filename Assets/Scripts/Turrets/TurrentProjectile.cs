@@ -5,7 +5,9 @@ using UnityEngine;
 public class TurrentProjectile : MonoBehaviour
 {
     [SerializeField] private Transform _projectileSpawnPosition;
+    [SerializeField] private float _delayBtwAttacks = 2f;
 
+    private float _nextAttackTime;
     private ObjectPooler _pooler;
     private Projectile _currentProjectileLoaded;
     private Turret _turret;
@@ -14,19 +16,26 @@ public class TurrentProjectile : MonoBehaviour
     {
         _turret = GetComponent<Turret>();
         _pooler = GetComponent<ObjectPooler>();
+
+        LoadProjectile();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (IsTurretEmpty())
         {
             LoadProjectile();
         }
 
-        if (_turret.CurrentEnemyTarget != null && _currentProjectileLoaded != null && _turret.CurrentEnemyTarget.EnemyHealth.CurrentHealth > 0f)
+        if (Time.time > _nextAttackTime)
         {
-            _currentProjectileLoaded.transform.parent = null;
-            _currentProjectileLoaded.SetEnemy(_turret.CurrentEnemyTarget);
+            if (_turret.CurrentEnemyTarget != null && _currentProjectileLoaded != null && _turret.CurrentEnemyTarget.EnemyHealth.CurrentHealth > 0f)
+            {
+                _currentProjectileLoaded.transform.parent = null;
+                _currentProjectileLoaded.SetEnemy(_turret.CurrentEnemyTarget);
+            }
+
+            _nextAttackTime = Time.time + _delayBtwAttacks;
         }
     }
 
@@ -38,9 +47,19 @@ public class TurrentProjectile : MonoBehaviour
         newInstance.transform.SetParent(_projectileSpawnPosition);
 
         _currentProjectileLoaded = newInstance.GetComponent<Projectile>();
+        _currentProjectileLoaded.TurretOwner = this;
+        _currentProjectileLoaded.ResetProjectile();
         newInstance.SetActive(true);
     }
 
-    
+    private bool IsTurretEmpty()
+    {
+        return _currentProjectileLoaded == null;
+    }
+
+    public void ResetTurretProjectile()
+    {
+        _currentProjectileLoaded = null;
+    }
 
 }
