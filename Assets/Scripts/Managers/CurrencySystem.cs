@@ -11,6 +11,7 @@ public class CurrencySystem : Singleton<CurrencySystem>
 
     public void Start()
     {
+        PlayerPrefs.DeleteKey(CURRENCY_SAVE_KEY);
         LoadCoins();
     }
 
@@ -35,4 +36,21 @@ public class CurrencySystem : Singleton<CurrencySystem>
             PlayerPrefs.Save();
         }
     }
+
+    private void OnEnable()
+    {
+        EnemyHealth.OnEnemyKilled += AddCoins;
+    }
+
+    private void AddCoins(Enemy enemy)
+    {
+        AddCoins(1);
+    }
+
+    private void OnDisable()
+    {
+        EnemyHealth.OnEnemyKilled -= AddCoins;
+    }
+
+
 }
