@@ -32,6 +32,8 @@ public class TankTurretProjectile : TurrentProjectile
         _currentProjectileLoaded.TurretOwner = this;
         _currentProjectileLoaded.ResetProjectile();
         _currentProjectileLoaded.SetEnemy(enemy);
+        _currentProjectileLoaded.Damage = Damage;
+
         instance.SetActive(true);
     }
 }
