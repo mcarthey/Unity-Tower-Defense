@@ -7,14 +7,14 @@ public class Projectile : MonoBehaviour
 {
     public static Action<Enemy, float> OnEnemyHit;
 
-    [SerializeField] private float _moveSpeed = 10f;
-    [SerializeField] private float _damage = 2f;
+    [SerializeField] protected float _moveSpeed = 10f;
+    [SerializeField] protected float _damage = 2f;
     [SerializeField] private float _minDistanceToDealDamage = 0.1f;
 
     public TurrentProjectile TurretOwner { get; set; }
-    private Enemy _enemyTarget;
+    protected Enemy _enemyTarget;
 
-    private void Update()
+    protected virtual void Update()
     {
         if (_enemyTarget != null)
         {
@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
             RotateProjectile();
         }
     }
-    private void MoveProjectile()
+    protected virtual void MoveProjectile()
     {
         transform.position = Vector2.MoveTowards(transform.position, _enemyTarget.transform.position,
             _moveSpeed * Time.deltaTime);
