@@ -860,7 +860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e45ada8a31d37549be84d439ab8dd56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 3.5
+  attackRange: 3
 --- !u!4 &527657595
 Transform:
   m_ObjectHideFlags: 0
@@ -876,7 +876,7 @@ Transform:
   - {fileID: 1362839356}
   - {fileID: 958607674}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &527657596
 MonoBehaviour:
@@ -974,7 +974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e45ada8a31d37549be84d439ab8dd56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 6
+  attackRange: 3
 --- !u!4 &644024377
 Transform:
   m_ObjectHideFlags: 0
@@ -990,7 +990,7 @@ Transform:
   - {fileID: 350163449}
   - {fileID: 1674469719}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &644024378
 MonoBehaviour:
@@ -1089,7 +1089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnMode: 0
   _enemyCount: 1
-  _delayBtwWaves: 2
+  _delayBtwWaves: 1
   _delayBtwSpawns: 0.5
   _minRandomDelay: 1
   _maxRandomDelay: 3
@@ -1141,6 +1141,51 @@ MonoBehaviour:
   - {x: -3.204443, y: -2.6093464, z: 0}
   - {x: 7.7643824, y: 0.35405836, z: 0}
   - {x: -6.1209974, y: 2.0863354, z: 0}
+--- !u!1 &843727096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 843727098}
+  - component: {fileID: 843727097}
+  m_Layer: 0
+  m_Name: CurrencyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &843727097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843727096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a76acd0a3691dc040a78912f94c623f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinTest: 500
+--- !u!4 &843727098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843727096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &884023587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,7 +1463,7 @@ Transform:
   - {fileID: 1517139386}
   - {fileID: 1030147423}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1038071553
 MonoBehaviour:
@@ -1614,7 +1659,7 @@ Transform:
   - {fileID: 2017774952}
   - {fileID: 884023588}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1118488315
 MonoBehaviour:
@@ -1711,7 +1756,7 @@ Transform:
   - {fileID: 1278514449}
   - {fileID: 297798427}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1135117404
 MonoBehaviour:
@@ -1979,7 +2024,7 @@ Transform:
   - {fileID: 996843426}
   - {fileID: 464710465}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1329545691
 MonoBehaviour:
@@ -2051,8 +2096,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b609c69735939bf4d8c8733558a4bd11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeInitialCost: 0
-  upgradeCostIncremental: 0
+  upgradeInitialCost: 10
+  upgradeCostIncremental: 20
   damageIncremental: 2
   delayReduce: 0.1
 --- !u!1 &1362839355
@@ -2498,7 +2543,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2017774951
 GameObject:
