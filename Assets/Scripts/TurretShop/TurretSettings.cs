@@ -5,9 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Turret Shop Setting")]
 public class TurretSettings : ScriptableObject
 {
-    [SerializeField] private GameObject TurretPrefab;
-    [SerializeField] private int TurretShopCost;
-    [SerializeField] private Sprite TurretShopSprite;
+    public GameObject TurretPrefab;
+    public int TurretShopCost;
+    public Sprite TurretShopSprite;
 
 
 }
